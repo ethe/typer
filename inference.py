@@ -113,7 +113,7 @@ class Assign(Form):
 
     def __init__(self, name, arg):
         super(Assign, self).__init__(name)
-        self.args = arg
+        self.arg = arg
 
     def infer(self, env):
         t = self.arg.infer(env)
