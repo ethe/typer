@@ -1,3 +1,4 @@
+import pprint
 from inner_type import *
 from inference import *
 
@@ -13,14 +14,15 @@ type2 = Arrow(
         Composite(Primitive("list"), Slot("a3"))),
     Slot("a5"))
 
+print "Unify Type 1 and Type 2:\n"
 print "Type 1  ->", type1
-print "Type 2  ->", type2
+print "Type 2  ->", type2, '\n'
 
 map = {}
 unify(map, type1, type2)
-print map
-print "apply 1 ->", type1.apply(map)
-print "apply 2 ->", type2.apply(map)
+print "Slot map:", map, '\n'
+print "Unifed result: ", "apply 1 ->", type1.apply(map)
+print "Unifed result: ", "apply 2 ->", type2.apply(map), '\n'
 
 
 env = Environment()
@@ -138,4 +140,5 @@ f_length.infer(env)
 f_sum.infer(env)
 f_map.infer(env)
 
-print env
+print "Some inference examples are defined in test.py, there is inference result:\n"
+pprint.pprint(env)
